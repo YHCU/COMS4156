@@ -1,0 +1,61 @@
+Name: Yang He
+UNI: yh2825
+Analyzer: OCLint
+
+The source code is contestant squark's solution of Q1 of the Google codejam 2017 final. Default OCLint options were used to analyze
+the code.
+In the directory, type the following command to see the report analysis:
+
+	oclint A.cpp -- -c
+
+The results are attached to the end of this file as appendix.
+
+OCLint puts an hiearchy over the types of violations in the code, ranked by priority 1, 2 and 3. There is no priority 1 violations
+in the source code. Three P2 violations were found: cyclomatic complexity, non-commenting source statements and N-path complexity,
+all of which points to the line 72 in the source code, which is the beginning line of function main().
+
+Cyclomatic complexity is the indictor of 'if', 'while', 'for' and 'case' in a function, and N-path indicates the number of possible 
+execution paths within one function. The non-commenting source statements counts the number of lines of a function excluding the
+brackets, comments etc. All of these could be reduced through dividing up large block of code within one function, and the source 
+code indeed did not have functions other than main(), which made the main() function a bit complicated.
+
+The results are understandable considering that the code was written under time limits for demanding questions.
+
+Priority 3 violations are basically stylistic checks. The code has a lot of short variable names, which indeed made the code hard to
+read, and has one unused variable.
+
+
+----------------------------------------------------------------------------------------------
+Compiler Warnings:
+
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:28:25: variadic templates are a C++11 extension
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:34:25: variadic templates are a C++11 extension
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:56:12: range-based for loop is a C++11 extension
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:62:12: range-based for loop is a C++11 extension
+
+
+OCLint Report
+
+Summary: TotalFiles=1 FilesWithViolations=1 P1=0 P2=3 P3=16 
+
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:72:1: high cyclomatic complexity [size|P2] Cyclomatic Complexity Number 12 exceeds limit of 10
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:72:1: high ncss method [size|P2] Method of 33 non-commenting source statements exceeds limit of 30
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:72:1: high npath complexity [size|P2] NPath Complexity Number 1202 exceeds limit of 200
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:29:13: short variable name [naming|P3] Length of variable name `v` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:35:12: short variable name [naming|P3] Length of variable name `v` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:43:1: short variable name [naming|P3] Length of variable name `PI` is 2, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:46:1: short variable name [naming|P3] Length of variable name `P` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:48:1: short variable name [naming|P3] Length of variable name `l` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:48:1: short variable name [naming|P3] Length of variable name `r` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:49:1: short variable name [naming|P3] Length of variable name `a` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:50:1: short variable name [naming|P3] Length of variable name `e` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:54:10: short variable name [naming|P3] Length of variable name `i` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:77:2: short variable name [naming|P3] Length of variable name `T` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:77:2: short variable name [naming|P3] Length of variable name `i0` is 2, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:80:3: short variable name [naming|P3] Length of variable name `n` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:81:3: short variable name [naming|P3] Length of variable name `i` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:81:3: short variable name [naming|P3] Length of variable name `j` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:81:3: short variable name [naming|P3] Length of variable name `k` is 1, which is shorter than the threshold of 3
+/Users/Yang/Projects/COMS4156/homework2/A.cpp:81:3: unused local variable [unused|P3] The local variable 'k' is unused.
+
+[OCLint (http://oclint.org) v0.12]
